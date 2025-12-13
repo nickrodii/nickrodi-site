@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --font-plex-mono: var(--font-plex-mono);
+  --font-main: var(--font-main);
+};
+
+body {
+  background: radial-gradient(circle at 20% 20%, #383636 0%, #252525 85%, #252525 100%);
+  color: white;
+  font-family: var(--font-main), monospace;
+}
