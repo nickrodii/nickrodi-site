@@ -11,3 +11,7 @@ body {
   color: white;
   font-family: var(--font-main), monospace;
 }
+
+html { scroll-behavior: smooth}
+
+section { scroll-margin-top: 200px}

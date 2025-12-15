@@ -31,7 +31,7 @@ const rubik = Rubik({
 
 export const metadata: Metadata = {
   title: "nickrodi",
-  description: "Portfolio of Nick's projects, skills, and experience",
+  description: "Nick Rodi's portfolio",
 };
 
 export default function RootLayout({
