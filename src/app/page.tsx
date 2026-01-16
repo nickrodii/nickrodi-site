@@ -24,41 +24,37 @@ export default function Home() {
         </section>
 
         <section id="about" className="mt-56 min-h-[60vh]">
-          <h2 className="text-6xl font-hero mb-10">about me</h2>
+          <h2 className="text-6xl font-hero mb-10">about</h2>
 
           <div className="flex flex-col gap-6 text-xl leading-relaxed text-gray-300">
             <p>
-              I’m a Computer Science student (with a focus in software engineering) at <span className="text-white font-semibold">Arizona State University</span>, 
-              currently building projects for the sole purpose of expanding my knowledge on languages.
+              I’m a Computer Science student (focusing on Software Engineering) at <span className="text-white font-semibold">Arizona State University</span>, 
+              where I am enrolled in <span className="text-white">Barrett, The Honors College</span> and the Ira A. Fulton Schools of Engineering.
             </p>
 
             <p>
-              My projects often start as solutions to my own daily annoyances, 
-              like building a wrapper tool because I was tired of using the command line for ffmpeg. 
-              That mindset drives my current focus on C# for Windows apps and JavaScript for the web (including this site).
+              Recently, I’ve been building software applications to test my understanding of different tech stacks. 
+              I have a background in object-oriented languages like <span className="text-white">Java, C++, and C#</span>, 
+              as well as modern web frameworks and languages like <span className="text-white">Next.js, React, JavaScript, and TypeScript</span>.
             </p>
 
             <p>
-              I’ve been exploring the web and computers since 2012, starting with a fascination for Windows functions and building 
-              simple games in Scratch. Learning Java in high school gave me a head start on OOP principles, but university pushed me 
-              to expand into C++ and C#. Right now, I’m diving deeper into the ecosystems of JavaScript and web frameworks, always 
-              looking for the next language that helps me build better tools.
+              Outside of code, I produce music, record videos, and enjoy electric longboarding.
             </p>
 
             <p>
-              I also like to engage in other creative mediums beyond code. I produce music across a variety of genres and record and 
-              edit content for YouTube. My favorite part of the process is always the construction of the media: taking ideas from my 
-              own thoughts and building them from the ground up into something others can appreciate and enjoy..
-            </p>
+              I am currently seeking a <span className="text-white font-semibold">Software Engineering internship for Summer 2025</span>. 
+              I want to work alongside experienced engineers to contribute to real projects and continue growing as a developer.
+            </p> 
           </div>
         </section>
 
         <section id="projects" className="mt-28 min-h-[60vh]">
-          <h2 className="text-4xl font-hero mb-10">my projects</h2>
+          <h2 className="text-4xl font-hero mb-10">projects</h2>
         </section>
 
         <section id="contact" className="mt-28 min-h-[60vh]">
-          <h2 className="text-4xl font-hero mb-10">contact me</h2>
+          <h2 className="text-4xl font-hero mb-10">contact</h2>
         </section>
       </main>
     </>
