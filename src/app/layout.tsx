@@ -29,10 +29,37 @@ const rubik = Rubik({
   subsets: ["latin"],
 });
 
+
+// metadata stuff
+
+const baseUrl = process.env.NEXT_PUBLIC_URL
+  ? `https://${process.env.NEXT_PUBLIC_URL}`
+  : 'http://localhost:3000';
+
 export const metadata: Metadata = {
-  title: "nickrodi",
-  description: "Nick Rodi's portfolio",
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: 'nickrodi',
+    template: '%s @ nickrodi',
+  },
+  description: "Portfolio of Nick Rodi, a third year CS student at ASU with a focus in software engineering.",
+  verification: {
+  google: '',
+  },
+
+  openGraph: {
+    title: 'nickrodi',
+    description: 'Nick Rodi\'s portfolio and projects',
+    url: baseUrl,
+    siteName: 'nickrodi',
+    locale: 'en_US',
+    type: 'website',
+  },
 };
+
+// google
+
+
 
 export default function RootLayout({
   children,
