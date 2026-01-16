@@ -54,6 +54,14 @@ export const metadata: Metadata = {
     siteName: 'nickrodi',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/graph.png',
+        width: 1200,
+        height: 630,
+        alt: 'nickrodi logo',
+      },
+    ]
   },
 };
 
