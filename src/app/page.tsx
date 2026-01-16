@@ -5,11 +5,15 @@ export default function Home() {
     <>
       <NavBar />
       <main className="min-h-screen w-full mx-auto max-w-[90rem] px-16">
-        <section id="hero" className="mx-auto mt-32">
+        <section id="hero" className="mx-auto mt-50">
           <div className="flex gap-16">
             <div className="max-w-md">
-              {/* Left-side of hero */}
-              <h1 className="text-white text-9xl font-bold font-plex-mono">hello, i'm nick</h1>
+              <h1 className="text-white font-bold font-plex-mono leading-tight">
+                {/* Left-side of hero */}
+                <span className="block text-6xl text-gray-400 mb-2">hello, i'm</span>
+                <span className="block text-9xl">nick</span>
+                <span className="block text-9xl">rodi</span>
+              </h1>
             </div>
 
             <div className="flex-1">
@@ -19,41 +23,42 @@ export default function Home() {
           
         </section>
 
-        <section id="about" className="mt-32 min-h-[60vh]">
-          <h2 className="text-4xl font-hero mb-12">about me</h2>
+        <section id="about" className="mt-56 min-h-[60vh]">
+          <h2 className="text-6xl font-hero mb-10">about me</h2>
 
           <div className="flex flex-col gap-6 text-xl leading-relaxed text-gray-300">
             <p>
-              I'm Nick, a Computer Science student at <span className="text-white font-semibold">Arizona State University</span> focusing on Software Engineering. 
-              I'm passionate about building apps and exploring different languages to expand my knowledge on software development.
+              I’m a Computer Science student (with a focus in software engineering) at <span className="text-white font-semibold">Arizona State University</span>, 
+              currently building projects for the sole purpose of expanding my knowledge on languages.
             </p>
 
             <p>
-              My interest in tech started at age 7 with the family computer. I was fascinated by <strong>Windows Vista</strong>, spending hours exploring the OS functions I didn't understand. 
-              I also discovered <strong>Scratch</strong>, which introduced me to event-driven programming concepts before I even knew what that meant. 
-              I also ended up running a YouTube channel dedicated to messing around with Windows, which included a tutorial on how to delete System32 (do not delete System32 by the way).
+              My projects often start as solutions to my own daily annoyances, 
+              like building a wrapper tool because I was tired of using the command line for ffmpeg. 
+              That mindset drives my current focus on C# for Windows apps and JavaScript for the web (including this site).
             </p>
 
             <p>
-              While high school formalized my coding knowledge with <strong>Java</strong>, my time at university has pushed me into notably C++ and C#, but a lot more languages from different paradigms. 
-              Lately, I've shifted my focus to <strong>C#</strong> (which I honestly prefer over Java now) and I'm currently teaching myself <strong>Rust</strong> to dive into modern systems programming.
+              I’ve been exploring the web and computers since 2012, starting with a fascination for Windows functions and building 
+              simple games in Scratch. Learning Java in high school gave me a head start on OOP principles, but university pushed me 
+              to expand into C++ and C#. Right now, I’m diving deeper into the ecosystems of JavaScript and web frameworks, always 
+              looking for the next language that helps me build better tools.
             </p>
 
             <p>
-              Outside of development, my favorite hobby is producing music. I use <strong>FL Studio</strong> as a 
-              creative outlet and have released multiple projects over the years. 
-              I treat programming much the same way—it's just a different medium for that same 
-              creative energy, allowing me to build something from nothing.
+              I also like to engage in other creative mediums beyond code. I produce music across a variety of genres and record and 
+              edit content for YouTube. My favorite part of the process is always the construction of the media: taking ideas from my 
+              own thoughts and building them from the ground up into something others can appreciate and enjoy..
             </p>
-</div>
+          </div>
         </section>
 
-        <section id="projects" className="mt-32 min-h-[60vh]">
-          <h2 className="text-4xl font-hero">my projects</h2>
+        <section id="projects" className="mt-28 min-h-[60vh]">
+          <h2 className="text-4xl font-hero mb-10">my projects</h2>
         </section>
 
-        <section id="contact" className="mt-32 min-h-[60vh]">
-          <h2 className="text-4xl font-hero">contact me</h2>
+        <section id="contact" className="mt-28 min-h-[60vh]">
+          <h2 className="text-4xl font-hero mb-10">contact me</h2>
         </section>
       </main>
     </>
