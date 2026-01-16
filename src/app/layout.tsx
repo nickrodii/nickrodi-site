@@ -37,7 +37,7 @@ const baseUrl = process.env.NEXT_PUBLIC_URL
   : 'http://localhost:3000';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL('https://nickrodi.com'),
   title: {
     default: 'nickrodi',
     template: '%s @ nickrodi',
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: 'nickrodi',
-    description: 'Nick Rodi\'s portfolio and projects',
-    url: baseUrl,
+    title: 'Nick Rodi\'s portfolio and projects',
+    description: 'Portfolio of Nick Rodi, a third year CS student at ASU with a focus in software engineering.',
+    url: 'https://nickrodi.com',
     siteName: 'nickrodi',
     locale: 'en_US',
     type: 'website',
