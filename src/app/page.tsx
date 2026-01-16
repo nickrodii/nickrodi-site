@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from 'next/link';
 import NavBar from "@/components/navigation";
 export default function Home() {
   return (
@@ -16,8 +17,14 @@ export default function Home() {
               </h1>
             </div>
 
-            <div className="flex-1">
-              {/* Right-side of hero */}
+            <div className="flex-1 content-center">
+              <h1 className="text-white font-bold font-plex-mono leading-tight">
+                {/* Right-side of hero */}
+                <span className="block text-3xl text-gray-400 mb-2 float-right">an Honors Computer Science Student at</span>
+
+                <span className="block text-7xl float-right text-yellow-100">Arizona State</span>
+                <span className="block text-7xl float-right text-yellow-100">University</span>
+              </h1>
             </div>
           </div>
           
@@ -49,12 +56,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="mt-28 min-h-[60vh]">
-          <h2 className="text-4xl font-hero mb-10">projects</h2>
+        <section id="projects" className="mt-16 min-h-[60vh]">
+          <h2 className="text-6xl font-hero mb-10">projects</h2>
+
         </section>
 
-        <section id="contact" className="mt-28 min-h-[60vh]">
-          <h2 className="text-4xl font-hero mb-10">contact</h2>
+        <section id="contact" className="mt-16 min-h-[60vh]">
+          <h2 className="text-6xl font-hero mb-10">contact</h2>
         </section>
       </main>
     </>
