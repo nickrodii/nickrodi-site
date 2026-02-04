@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from 'next/link';
 import NavBar from "@/components/navigation";
+import ProjectLayout from "@/components/projectlayout";
+import { projects } from "@/content/projects";
 export default function Home() {
   return (
     <>
@@ -58,7 +58,7 @@ export default function Home() {
 
         <section id="projects" className="mt-16 min-h-[60vh]">
           <h2 className="text-6xl font-hero mb-10">projects</h2>
-
+          <ProjectLayout projects={projects} />
         </section>
 
         <section id="contact" className="mt-16 min-h-[60vh]">
