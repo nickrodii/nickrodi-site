@@ -26,7 +26,7 @@ export const projects: Project[] = [
         id: 'smptools',
         title: 'SMPtools',
         description: 'A variety of plug-and-play Minecraft server plugins made for small survival servers, built using Maven Java, Paper API, and YAML.',
-        // imageUrl: '/images/projects/smptools.png',
+        imageUrl: '/images/projects/smptools.png',
         linkUrl: {
             repo: { label: 'GitHub', href: 'https://github.com/nickrodii/smptools' },
             live: { label: 'Check it out', href: 'https://modrinth.com/collection/GQSRign2' },
