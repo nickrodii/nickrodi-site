@@ -9,7 +9,7 @@ export const projects: Project[] = [
         linkUrl: {
             repo: { label: 'GitHub', href: 'https://github.com/nickrodii/dlclip' },
         },
-        variant: 'featured',
+        variant: 'default',
     },
     {
         id: 'nickrodi-site',
@@ -18,8 +18,19 @@ export const projects: Project[] = [
         imageUrl: '/images/projects/nickrodi-site.png',
         linkUrl: {
             repo: { label: 'GitHub', href: 'https://github.com/nickrodii/nickrodi-site' },
-            live: { label: 'Website', href: 'https://nickrodi.com' },
+            live: { label: 'Check it out', href: 'https://nickrodi.com' },
         },
         variant: 'default',
-    }
+    },
+    {
+        id: 'smptools',
+        title: 'SMPtools',
+        description: 'A variety of plug-and-play Minecraft server plugins made for small survival servers, built using Maven Java, Paper API, and YAML.',
+        // imageUrl: '/images/projects/smptools.png',
+        linkUrl: {
+            repo: { label: 'GitHub', href: 'https://github.com/nickrodii/smptools' },
+            live: { label: 'Check it out', href: 'https://modrinth.com/collection/GQSRign2' },
+        },
+        variant: 'featured',
+    },
 ]
