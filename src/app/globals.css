@@ -4,10 +4,23 @@
   .font-title { font-family: var(--font-title), system-ui, sans-serif; }
   .font-main { font-family: var(--font-main), system-ui, sans-serif; }
   .font-plex-mono { font-family: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .animate-caret { animation: caret-blink 1s steps(1) infinite; }
+}
+
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+
+html {
+  min-height: 100%;
+  background-color: #252525;
+  background: radial-gradient(circle at 20% 20%, #383636 0%, #252525 85%, #252525 100%);
 }
 
 body {
-  background: radial-gradient(circle at 20% 20%, #383636 0%, #252525 85%, #252525 100%);
+  min-height: 100%;
+  margin: 0;
+  background: transparent;
   color: white;
   font-family: var(--font-main), monospace;
 }

@@ -1,4 +1,5 @@
 import NavBar from "@/components/navigation";
+import HeroTyping from "@/components/hero-typing";
 import ProjectLayout from "@/components/projectlayout";
 import { projects } from "@/content/projects";
 export default function Home() {
@@ -6,36 +7,14 @@ export default function Home() {
     <>
       <NavBar />
       <main className="min-h-screen w-full mx-auto max-w-[90rem] px-16">
-        <section id="hero" className="mx-auto mt-50">
-          <div className="flex gap-16">
-            <div className="max-w-md">
-              <h1 className="text-white font-bold font-plex-mono leading-tight">
-                {/* Left-side of hero */}
-                <span className="block text-6xl text-gray-400 mb-2">hello, i'm</span>
-                <span className="block text-9xl">nick</span>
-                <span className="block text-9xl">rodi</span>
-              </h1>
-            </div>
-
-            <div className="flex-1 content-center">
-              <h1 className="text-white font-bold font-plex-mono leading-tight">
-                {/* Right-side of hero */}
-                <span className="block text-3xl text-gray-400 mb-2 float-right">an Honors Computer Science Student at</span>
-
-                <span className="block text-7xl float-right text-yellow-100">Arizona State</span>
-                <span className="block text-7xl float-right text-yellow-100">University</span>
-              </h1>
-            </div>
-          </div>
-          
-        </section>
+        <HeroTyping />
 
         <section id="about" className="mt-56 min-h-[60vh]">
           <h2 className="text-6xl font-hero mb-10">about</h2>
 
           <div className="flex flex-col gap-6 text-xl leading-relaxed text-gray-300">
             <p>
-              I’m a Computer Science student (focusing on Software Engineering) at <span className="text-white font-semibold">Arizona State University</span>, 
+              I’m a Computer Science student (focusing on Software Engineering) at Arizona State University, 
               where I am enrolled in <span className="text-white">Barrett, The Honors College</span> and the Ira A. Fulton Schools of Engineering.
             </p>
 
