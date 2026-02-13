@@ -20,9 +20,50 @@ html {
 body {
   min-height: 100%;
   margin: 0;
+  position: relative;
   background: transparent;
   color: white;
   font-family: var(--font-main), monospace;
+  --grid-size: 60px;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-size: var(--grid-size) var(--grid-size);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><rect width='3' height='3' fill='%23ffffff' fill-opacity='0.08'/></svg>");
+  opacity: 0;
+}
+
+body::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><rect width='3' height='3' fill='%23ffffff' fill-opacity='0.35'/></svg>");
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  -webkit-mask-image: repeating-linear-gradient(135deg, transparent 0%, transparent 38%, rgba(0,0,0,0.2) 42%, #000 50%, rgba(0,0,0,0.2) 58%, transparent 62%, transparent 70%);
+  mask-image: repeating-linear-gradient(135deg, transparent 0%, transparent 38%, rgba(0,0,0,0.2) 42%, #000 50%, rgba(0,0,0,0.2) 58%, transparent 62%, transparent 70%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 420% 420%;
+  mask-size: 420% 420%;
+  -webkit-mask-position: 210% 210%;
+  mask-position: 210% 210%;
+  animation: grid-wave 16s linear infinite;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes grid-wave {
+  100% {
+    -webkit-mask-position: -210% -210%;
+    mask-position: -210% -210%;
+  }
 }
 
 html { scroll-behavior: smooth}

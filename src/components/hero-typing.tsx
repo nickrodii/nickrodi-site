@@ -13,6 +13,7 @@ type TypedLineProps = {
   className: string;
   delay: number;
   showCursor: boolean;
+  isTyping: boolean;
   speed?: number;
 };
 
@@ -79,6 +80,7 @@ function TypedLine({
   className,
   delay,
   showCursor,
+  isTyping,
   speed = 45,
 }: TypedLineProps) {
   const { displayed } = useTypewriter(text, delay, speed);
@@ -99,10 +101,13 @@ function TypedLine({
           {showCursor ? (
             <span
               aria-hidden="true"
-              className="absolute left-0 top-0 h-[1em] w-[2px] bg-current opacity-80 animate-caret transition-transform ease-linear"
+              className={[
+                "absolute left-0 top-0 h-[1em] w-[2px] bg-current opacity-80 transition-transform ease-linear",
+                isTyping ? "" : "animate-caret",
+              ].join(" ")}
               style={{
                 transform: `translateX(${caretX}px)`,
-                transitionDuration: `${Math.max(speed, 40)}ms`,
+                transitionDuration: "30ms",
               }}
             />
           ) : null}
@@ -213,31 +218,33 @@ export default function HeroTyping() {
       <div className="flex gap-16">
         <div className="max-w-md">
           <h1 className="text-white font-bold font-plex-mono leading-tight">
-            {leftLines.lines.map((line) => (
-              <TypedLine
-                key={line.id}
-                text={line.text}
-                className={line.className}
-                delay={line.delay}
-                speed={typingSpeed}
-                showCursor={cursorActive && activeLineId === line.id}
-              />
-            ))}
+          {leftLines.lines.map((line) => (
+            <TypedLine
+              key={line.id}
+              text={line.text}
+              className={line.className}
+              delay={line.delay}
+              speed={typingSpeed}
+              showCursor={cursorActive && activeLineId === line.id}
+              isTyping={cursorActive && elapsed <= line.delay + line.duration}
+            />
+          ))}
           </h1>
         </div>
 
         <div className="flex-1 content-center">
           <h1 className="text-white font-bold font-plex-mono leading-tight">
-            {rightLines.lines.map((line) => (
-              <TypedLine
-                key={line.id}
-                text={line.text}
-                className={line.className}
-                delay={line.delay}
-                speed={typingSpeed}
-                showCursor={cursorActive && activeLineId === line.id}
-              />
-            ))}
+          {rightLines.lines.map((line) => (
+            <TypedLine
+              key={line.id}
+              text={line.text}
+              className={line.className}
+              delay={line.delay}
+              speed={typingSpeed}
+              showCursor={cursorActive && activeLineId === line.id}
+              isTyping={cursorActive && elapsed <= line.delay + line.duration}
+            />
+          ))}
           </h1>
         </div>
       </div>
