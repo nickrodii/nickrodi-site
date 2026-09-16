@@ -149,10 +149,16 @@ export default function HeroTyping() {
     const lines: Omit<TypedLineConfig, "delay">[] = [
       {
         text: "hello, i'm",
-        className: "block text-6xl text-gray-400 mb-2",
+        className: "mb-2 block w-fit text-2xl text-gray-400 sm:text-4xl xl:text-6xl",
       },
-      { text: "nick", className: "block text-9xl" },
-      { text: "rodi", className: "block text-9xl" },
+      {
+        text: "nick",
+        className: "block w-fit text-[3.75rem] leading-[0.95] sm:text-7xl lg:text-8xl xl:text-9xl",
+      },
+      {
+        text: "rodi",
+        className: "block w-fit text-[3.75rem] leading-[0.95] sm:text-7xl lg:text-8xl xl:text-9xl",
+      },
     ];
 
     return scheduleLines(lines, startDelay, "left");
@@ -161,11 +167,17 @@ export default function HeroTyping() {
   const rightLines = useMemo(() => {
     const lines: Omit<TypedLineConfig, "delay">[] = [
       {
-        text: "an Honors Computer Science Student at",
-        className: "block text-3xl text-gray-400 mb-2 float-right",
+        text: "an Honors Software Engineer at",
+        className: "mb-2 block w-fit text-lg text-gray-400 sm:text-2xl xl:text-3xl",
       },
-      { text: "Arizona State", className: "block text-7xl float-right text-yellow-100" },
-      { text: "University", className: "block text-7xl float-right text-yellow-100" },
+      {
+        text: "Arizona State",
+        className: "block w-fit text-[2.6rem] leading-tight text-yellow-100 sm:text-6xl lg:text-7xl",
+      },
+      {
+        text: "University",
+        className: "block w-fit text-[2.6rem] leading-tight text-yellow-100 sm:text-6xl lg:text-7xl",
+      },
     ];
 
     const rightStart = leftLines.endTime + columnGap;
@@ -214,10 +226,10 @@ export default function HeroTyping() {
   const cursorActive = elapsed <= typingCompleteTime + cursorHold;
 
   return (
-    <section id="hero" className="mx-auto mt-50">
-      <div className="flex gap-16">
-        <div className="max-w-md">
-          <h1 className="text-white font-bold font-plex-mono leading-tight">
+    <section id="hero" className="mx-auto mt-24 sm:mt-32 md:mt-40 xl:mt-50">
+      <div className="flex flex-col gap-10 sm:gap-12 xl:flex-row xl:gap-16">
+        <div className="max-w-none xl:max-w-md">
+          <h1 className="flex flex-col items-start text-white font-bold font-plex-mono leading-tight">
           {leftLines.lines.map((line) => (
             <TypedLine
               key={line.id}
@@ -232,8 +244,8 @@ export default function HeroTyping() {
           </h1>
         </div>
 
-        <div className="flex-1 content-center">
-          <h1 className="text-white font-bold font-plex-mono leading-tight">
+        <div className="max-w-3xl xl:ml-auto xl:flex-1 xl:content-center">
+          <h1 className="flex flex-col items-start text-white font-bold font-plex-mono leading-tight xl:w-full xl:items-end">
           {rightLines.lines.map((line) => (
             <TypedLine
               key={line.id}

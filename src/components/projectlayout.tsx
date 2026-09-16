@@ -14,15 +14,17 @@ export default function ProjectLayout({ projects }: ProjectLayoutProps) {
   });
 
   return (
-    <div className="grid grid-flow-dense auto-rows-[16rem] gap-6 md:auto-rows-[18rem] md:grid-cols-2 xl:auto-rows-[20rem] xl:grid-cols-3">
+    <div className="grid grid-flow-dense auto-rows-[8.75rem] gap-4 sm:gap-6 md:auto-rows-[9rem] md:grid-cols-2 xl:auto-rows-[10rem] xl:grid-cols-3">
       {orderedProjects.map((project) => {
         const isFeatured = project.variant === "featured";
+        const isMini = project.variant === "mini";
+
         return (
           <div
             key={project.id}
             className={[
               "h-full",
-              isFeatured ? "md:col-span-3 md:row-span-1" : "",
+              isFeatured ? "row-span-3 md:col-span-3 md:row-span-2" : isMini ? "row-span-1" : "row-span-2",
             ].join(" ")}
           >
             <ProjectCard project={project} />

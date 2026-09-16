@@ -11,6 +11,21 @@
   50% { opacity: 0; }
 }
 
+:root {
+  --lq-text: rgba(255, 255, 255, 0.96);
+  --lq-text-dim: rgba(255, 255, 255, 0.55);
+  --lq-tint: rgba(255, 255, 255, 0.11);
+  --lq-tint-deep: rgba(255, 255, 255, 0.03);
+  --lq-rim-hi: rgba(255, 255, 255, 0.55);
+  --lq-rim-lo: rgba(255, 255, 255, 0.14);
+  --lq-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.22);
+  --lq-highlight: rgba(255, 255, 255, 0.18);
+  --lq-accent: #ffffff;
+  --lq-danger: #ff7076;
+  --lq-danger-text: #ff7076;
+  --lq-scrim: rgba(0, 0, 0, 0.48);
+}
+
 html {
   min-height: 100%;
   background-color: #252525;
@@ -24,7 +39,7 @@ body {
   background: transparent;
   color: white;
   font-family: var(--font-main), monospace;
-  --grid-size: 46px;
+  --grid-size: 36px;
 }
 
 body::before,
@@ -59,6 +74,12 @@ main {
   z-index: 1;
 }
 
+@media (min-width: 768px) {
+  body {
+    --grid-size: 46px;
+  }
+}
+
 @keyframes grid-wave {
   100% {
     -webkit-mask-position: -210% -210%;
@@ -68,4 +89,12 @@ main {
 
 html { scroll-behavior: smooth}
 
-section { scroll-margin-top: 200px}
+html.project-transition-no-smooth-scroll {
+  scroll-behavior: auto !important;
+}
+
+section { scroll-margin-top: 132px}
+
+@media (min-width: 768px) {
+  section { scroll-margin-top: 200px}
+}

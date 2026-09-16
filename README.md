@@ -16,3 +16,21 @@
 ### [**Visit Live Website »**](https://nickrodi.com)
 
 </div>
+
+## Hosting
+
+Public traffic flows through Cloudflare Tunnel to `http://localhost:3000`.
+The live site is managed by PM2 with the process name `website`.
+
+## Updating The Live Site
+
+just run:
+
+```bash
+./deploy.sh
+```
+
+## Notes to remember
+
+1600x900 is best for project card images,
+Right third of image is visible in featured card

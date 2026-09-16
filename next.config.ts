@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return [
+      // Serve the resume PDF at a clean /resume URL
+      { source: "/resume", destination: "/resume.pdf" },
+    ];
+  },
 };
 
 export default nextConfig;

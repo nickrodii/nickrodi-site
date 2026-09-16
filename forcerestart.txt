@@ -1,0 +1,37 @@
+cd /home/nickrodi/services/website || exit 1
+
+# Stop anything currently on 8000 (was python http.server)
+PID8000=$(ss -lntp | grep ':8000' | sed -n 's/.*pid=\([0-9]\+\).*/\1/p' | head -n1)
+if [ -n "$PID8000" ]; then
+  echo "Killing :8000 PID $PID8000"
+  kill -9 "$PID8000" || true
+fi
+
+# (Optional) Stop Next on 3000 so you don't have two copies running
+PID3000=$(ss -lntp | grep ':3000' | sed -n 's/.*pid=\([0-9]\+\).*/\1/p' | head -n1)
+if [ -n "$PID3000" ]; then
+  echo "Stopping :3000 PID $PID3000"
+  kill -TERM "$PID3000" || true
+fi
+
+# Clean build + restart Next on 8000
+rm -rf .next
+npm ci --silent || npm install
+npm run build || exit 1
+
+rm -f next8000.log
+nohup npm run start -- -p 8000 > next8000.log 2>&1 & disown
+
+echo "== listeners now =="
+ss -lntp | egrep ':(8000|3000)\b' || true
+
+echo "== local check =="
+curl -sI http://127.0.0.1:8000 | sed -n '1,15p'
+
+echo "== public check =="
+curl -sI https://nickrodi.com | sed -n '1,25p'
+
+echo "== image check =="
+curl -sI https://nickrodi.com/images/projects/smptools.png | sed -n '1,25p'
+
+tail -n 60 next8000.log

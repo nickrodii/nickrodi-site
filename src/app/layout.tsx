@@ -40,16 +40,16 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://nickrodi.com'),
   title: {
     default: 'nickrodi',
-    template: '%s @ nickrodi',
+    template: '%s - nickrodi.com',
   },
-  description: "Portfolio of Nick Rodi, a third year CS student at ASU with a focus in software engineering.",
+  description: "Portfolio of Nick Rodi, a fourth-year Software Engineer student at ASU.",
   verification: {
   google: '',
   },
 
   openGraph: {
     title: 'Nick Rodi\'s portfolio and projects',
-    description: 'Portfolio of Nick Rodi, a third year CS student at ASU with a focus in software engineering.',
+    description: 'Portfolio of Nick Rodi, a fourth-year Software Engineer student at ASU.',
     url: 'https://nickrodi.com',
     siteName: 'nickrodi',
     locale: 'en_US',
@@ -77,11 +77,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${IBMPlexMono.variable} ${orbit.variable} ${rubik.variable} antialiased`}>
-        <header className="sticky top-0 z-50">
-          <nav className="mx-auto max-w-[90rem] py-6">
-            
-          </nav>
-        </header>
         {children}
       </body>
     </html>

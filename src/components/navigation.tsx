@@ -1,20 +1,18 @@
 "use client";
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useState } from "react";
+import { LiquiGlass } from "@/vendor/liqui-glass";
 
-const tint = "rgba(255,255,255,0.01)";
+type NavBarProps = {
+  anchorPrefix?: string;
+};
 
-const makeZoneStyle = (filterId: string): CSSProperties => ({
-  backdropFilter: `url(#${filterId})`,
-  WebkitBackdropFilter: `url(#${filterId})`,
-  backgroundColor: tint,
-});
+const links = [
+  { href: "#about", label: "about" },
+  { href: "#projects", label: "projects" },
+  { href: "#contact", label: "contact" },
+];
 
-const outerLeftStyle = makeZoneStyle("nav-shift-right");
-const innerLeftStyle = makeZoneStyle("nav-shift-left");
-const innerRightStyle = makeZoneStyle("nav-shift-right");
-const outerRightStyle = makeZoneStyle("nav-shift-left");
-
-export default function NavBar() {
+export default function NavBar({ anchorPrefix = "" }: NavBarProps) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,115 +24,51 @@ export default function NavBar() {
 
   return (
     <header
+      data-site-nav="true"
       className={[
-        "sticky top-4 z-50 px-4",
+        "sticky top-3 z-50 px-3 sm:top-4 sm:px-4",
         "transition-all duration-300 ease-out",
         scrolled ? "py-1" : "py-2",
       ].join(" ")}
     >
-      <svg className="pointer-events-none absolute h-0 w-0" aria-hidden="true" focusable="false">
-        <defs>
-          <filter id="nav-shift-right" x="-40%" y="-30%" width="180%" height="160%">
-            <feFlood floodColor="rgb(255,128,0)" result="map" />
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="map"
-              scale="44"
-              xChannelSelector="R"
-              yChannelSelector="G"
-            />
-          </filter>
-          <filter id="nav-shift-left" x="-40%" y="-30%" width="180%" height="160%">
-            <feFlood floodColor="rgb(0,128,0)" result="map" />
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="map"
-              scale="44"
-              xChannelSelector="R"
-              yChannelSelector="G"
-            />
-          </filter>
-        </defs>
-      </svg>
-
-      <div className="relative isolate mx-auto w-full max-w-[58rem]">
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-full"
-        >
-          <span aria-hidden="true" className="absolute inset-y-0 left-0 w-[25%]" style={outerLeftStyle} />
-          <span aria-hidden="true" className="absolute inset-y-0 left-[25%] w-[25%]" style={innerLeftStyle} />
-          <span aria-hidden="true" className="absolute inset-y-0 left-[50%] w-[25%]" style={innerRightStyle} />
-          <span aria-hidden="true" className="absolute inset-y-0 left-[75%] w-[25%]" style={outerRightStyle} />
-        </span>
-
-        <nav
-          className={[
-            "relative z-10 w-full overflow-hidden rounded-full border border-white/22 bg-transparent",
-            "transition-all duration-300 ease-out shadow-[0_4px_12px_rgba(0,0,0,0.16)]",
-          ].join(" ")}
-        >
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-full bg-white/[0.015] backdrop-blur-[6px] backdrop-saturate-115"
-          />
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-full border border-white/14"
-          />
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-full border border-black/40"
-            style={{
-              WebkitMaskImage:
-                "radial-gradient(92px 54px at 104% 4%, rgba(0,0,0,1) 16%, rgba(0,0,0,0.55) 22%, rgba(0,0,0,0) 30%)",
-              maskImage:
-                "radial-gradient(92px 54px at 104% 4%, rgba(0,0,0,1) 16%, rgba(0,0,0,0.55) 22%, rgba(0,0,0,0) 30%)",
-            }}
-          />
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-full border border-black/36"
-            style={{
-              WebkitMaskImage:
-                "radial-gradient(92px 54px at 0% 100%, rgba(0,0,0,1) 16%, rgba(0,0,0,0.55) 22%, rgba(0,0,0,0) 30%)",
-              maskImage:
-                "radial-gradient(92px 54px at 0% 100%, rgba(0,0,0,1) 16%, rgba(0,0,0,0.55) 22%, rgba(0,0,0,0) 30%)",
-            }}
-          />
-          <ul className="relative z-10 flex items-center justify-between gap-3 px-5 py-3 text-white md:gap-6 md:px-7">
-            <li>
-              <a className="font-title text-xl leading-none text-white md:text-2xl" href="#">
+      <LiquiGlass
+        className="mx-auto w-full max-w-[58rem] text-white"
+        contentClassName="w-full"
+        material="auto"
+        profile="squircle"
+        radius={999}
+        bezel={18}
+        refraction={66}
+        blur={1}
+        frost={0.06}
+        specular={0.05}
+        dispersion={0}
+        saturation={1.1}
+        elevated
+      >
+        <nav>
+          <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 px-4 py-3 sm:flex-nowrap sm:justify-between sm:gap-3 sm:px-5 md:gap-6 md:px-7">
+            <li className="basis-full text-center sm:basis-auto sm:text-left">
+              <a
+                className="font-title text-xl leading-none text-white sm:text-[1.35rem] md:text-2xl"
+                href={anchorPrefix ? `${anchorPrefix}` : "#"}
+              >
                 nickrodi
               </a>
             </li>
-            <li>
-              <a
-                href="#about"
-                className="rounded-full px-2 py-1 text-xs uppercase tracking-[0.22em] text-white/90 transition-colors hover:text-white md:text-sm"
-              >
-                about
-              </a>
-            </li>
-            <li>
-              <a
-                href="#projects"
-                className="rounded-full px-2 py-1 text-xs uppercase tracking-[0.22em] text-white/90 transition-colors hover:text-white md:text-sm"
-              >
-                projects
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="rounded-full px-2 py-1 text-xs uppercase tracking-[0.22em] text-white/90 transition-colors hover:text-white md:text-sm"
-              >
-                contact
-              </a>
-            </li>
+            {links.map(({ href, label }) => (
+              <li key={href}>
+                <a
+                  href={`${anchorPrefix}${href}`}
+                  className="rounded-full px-2 py-1 text-[0.62rem] uppercase tracking-[0.18em] text-white/90 transition-colors hover:text-white sm:text-xs sm:tracking-[0.22em] md:text-sm"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
-      </div>
+      </LiquiGlass>
     </header>
   );
 }
