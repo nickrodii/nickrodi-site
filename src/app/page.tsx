@@ -1,15 +1,15 @@
 import NavBar from "@/components/navigation";
-import HeroTyping from "@/components/hero-typing";
-import ProjectLayout from "@/components/projectlayout";
+import Hero from "@/components/hero";
+import ProjectList from "@/components/project-list";
 import { projects } from "@/content/projects";
 export default function Home() {
   return (
     <>
       <NavBar />
-      <main className="mx-auto min-h-screen w-full max-w-[90rem] px-4 sm:px-6 lg:px-10 xl:px-16">
-        <HeroTyping />
+      <main className="mx-auto min-h-screen w-full max-w-[58rem] px-4 sm:px-6">
+        <Hero />
 
-        <section id="about" className="mt-24 min-h-[50vh] sm:mt-32 md:mt-40 lg:mt-56">
+        <section id="about" className="mt-20 sm:mt-24 md:mt-32">
           <h2 className="mb-8 text-4xl font-hero sm:text-5xl md:mb-10 md:text-6xl">about</h2>
 
           <div className="flex flex-col gap-5 text-base leading-relaxed text-gray-300 sm:text-lg md:gap-6 md:text-xl">
@@ -35,12 +35,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="mt-14 min-h-[60vh] sm:mt-16">
+        <section id="projects" className="mt-20 sm:mt-24 md:mt-32">
           <h2 className="mb-8 text-4xl font-hero sm:text-5xl md:mb-10 md:text-6xl">projects</h2>
-          <ProjectLayout projects={projects} />
+          <ProjectList projects={projects} />
         </section>
 
-        <section id="contact" className="mt-14 min-h-[60vh] pb-20 sm:mt-16 sm:pb-24">
+        <section id="contact" className="mt-20 pb-20 sm:mt-24 sm:pb-24 md:mt-32">
           <h2 className="mb-8 text-4xl font-hero sm:text-5xl md:mb-10 md:text-6xl">contact</h2>
           <div className="flex flex-col gap-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm sm:gap-10 sm:p-8 md:p-10">
             <div className="space-y-3">
