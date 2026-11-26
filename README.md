@@ -32,5 +32,12 @@ just run:
 
 ## Notes to remember
 
-1600x900 is best for project card images,
-Right third of image is visible in featured card
+Projects live in `src/content/projects.ts`, ordered most impressive first. The list
+renders in three tiers by `variant`: `featured`, then `default`, then `mini`.
+
+- `featured` — image sits on the left at 56% of the card, cropped to roughly 1.7:1, so
+  keep the subject centred. A `video: { src, poster }` plays there instead of the image:
+  encode with `ffmpeg -an -vf "scale=1280:-2,fps=30" -crf 27 -movflags +faststart`.
+- `default` — 112px square thumbnail, centre-cropped, so crop wide screenshots to the
+  interesting part first.
+- `mini` — text only, no image.
